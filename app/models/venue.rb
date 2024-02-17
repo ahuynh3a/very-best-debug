@@ -19,6 +19,7 @@ class Venue < ApplicationRecord
   def comments
     my_id = self.id
     matching_comments = Comment.where({ :venue_id => my_id })
-    return matching_comments
+    list_of_comments = matching_comments.order({:created_at => :desc})
+    return list_of_comments
   end
 end
